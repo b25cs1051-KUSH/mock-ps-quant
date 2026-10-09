@@ -1,0 +1,59 @@
+# Core data & numerical computing
+pandas
+numpy
+scipy
+polars
+
+# Market data
+yfinance
+ccxt
+
+# Backtesting frameworks
+backtrader
+vectorbt
+zipline-reloaded
+bt
+
+# Technical analysis / indicators
+ta
+TA-Lib
+pandas-ta
+
+# Statistics & econometrics
+statsmodels
+arch
+pmdarima
+
+# Machine learning
+scikit-learn
+xgboost
+lightgbm
+catboost
+
+# Deep learning
+torch
+tensorflow
+
+# Portfolio & risk
+pyfolio-reloaded
+empyrical-reloaded
+quantstats
+riskfolio-lib
+PyPortfolioOpt
+
+# Visualization
+matplotlib
+plotly
+seaborn
+
+# Workflow & utilities
+jupyterlab
+tqdm
+joblib
+python-dotenv
+requests
+
+# Optional but useful
+numba
+optuna
+pyarrow

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Quant Research Environment</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  
+    body { max-width: 50em; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; }
+    h1 { border-bottom: 3px solid #2563eb; padding-bottom: 10px; color: #1e3a8a; }
+    h2 { border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-top: 2.2em; color: #1e40af; }
+    h3 { color: #334155; margin-top: 1.6em; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; overflow-x: auto; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    pre code { background: none; padding: 0; color: inherit; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 2.5em 0; }
+    li { margin-bottom: 4px; }
+    a { color: #2563eb; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Quant Research Environment</h1>
+</header>
+<h1 id="quant-research-environment-readme">Quant Research Environment —
+README</h1>
+<p>Welcome. This folder is your sandbox for building, testing, and
+analyzing trading strategies. Read this once before you start, it’ll
+save you a lot of confused debugging later.</p>
+<h2 id="folder-structure">Folder structure</h2>
+<pre><code>QUANT_ENV/
+├── analysis/      # notebooks / scripts where you explore data, indicators, ideas
+├── data/          # raw and processed price data (CSV files go here)
+├── plots/         # output charts get saved here (auto-created by scripts)
+├── strategies/    # one file per strategy idea — keep them separate, don&#39;t overwrite
+├── backtester.py  # the core backtesting engine — don&#39;t edit this directly
+└── readme.txt     # this file</code></pre>
+<h2 id="how-the-workflow-works">How the workflow works</h2>
+<ol type="1">
+<li><p><strong>Build your strategy logic</strong> in a script under
+<code>strategies/</code>. Your job is to generate a <code>signal</code>
+column: <code>1</code> = long, <code>-1</code> = short, <code>0</code> =
+flat (you can also use fractional values like <code>0.5</code> for
+partial sizing — the engine scales position size by
+<code>abs(signal)</code>).</p></li>
+<li><p><strong>Export a CSV</strong> with exactly three columns:
+<code>datetime</code>, <code>close</code>, <code>signal</code>. Save it
+to <code>data/</code>.</p></li>
+<li><p><strong>Run the backtester</strong> on that CSV:</p>
+<pre><code>python backtester.py data/your_signals.csv 10000 0.0003</code></pre>
+<p>Arguments:
+<code>&lt;csv_file&gt; [initial_capital] [transaction_cost_pct]</code>.
+Capital and cost default to <code>10000</code> and <code>0.0003</code>
+(0.03% per side) if you don’t pass them.</p></li>
+<li><p>It prints a summary, and saves <code>trades.csv</code> and
+<code>backtest_summary.txt</code> in your current working directory — so
+<strong>run it from inside the strategy/data folder you’re working
+in</strong>, otherwise outputs will scatter wherever your terminal
+happens to be.</p></li>
+</ol>
+<h2 id="csv-format-requirements-read-this-carefully">CSV format
+requirements (read this carefully)</h2>
+<ul>
+<li><code>datetime</code> column <strong>must</strong> be in
+<code>DD-MM-YYYY HH:MM</code> format
+(e.g. <code>15-03-2024 09:15</code>). Any other format will throw a
+parsing error.</li>
+<li><code>close</code> is your price series.</li>
+<li><code>signal</code> should not contain NaNs — drop or fill them
+before exporting, otherwise the engine will misinterpret a
+<code>NaN != position</code> transition as a trade.</li>
+<li>Sort order doesn’t matter — the backtester sorts by datetime
+internally — but make sure there are no duplicate timestamps.</li>
+</ul>
+<h2 id="what-the-backtester-actually-does">What the backtester actually
+does</h2>
+<ul>
+<li>Walks through your data bar by bar. Whenever <code>signal</code>
+changes value, it closes the existing position (if any) and opens a new
+one at that bar’s close price.</li>
+<li>Position size = <code>capital * abs(signal)</code> — so a signal of
+<code>1</code> means you go fully long with all available capital,
+<code>-1</code> means fully short, <code>0.5</code> means half capital
+long, etc. <strong>Signals above 1 in magnitude will use
+leverage</strong> (e.g. <code>2</code> = 2x your capital) — only do this
+intentionally.</li>
+<li>Transaction costs are charged on both entry and exit, as a
+percentage of position value.</li>
+<li>Any open position is force-closed at the last bar of your data so
+PnL is always fully realized.</li>
+<li>Sharpe Ratio is calculated from <strong>daily</strong> returns
+(end-of-day equity), annualized with <code>sqrt(252)</code>, assuming a
+0% risk-free rate. If you’re used to a different convention, expect
+different numbers — that’s why, not a bug.</li>
+</ul>
+<h2 id="common-mistakes-to-avoid">Common mistakes to avoid</h2>
+<ul>
+<li><strong>Don’t compare Sharpe/CAGR across runs with different date
+ranges.</strong> If your data download has <code>end_date=None</code>
+(fetches “up to today”), running the same script on different days will
+silently use different data and give you different numbers. Always pin a
+fixed end date when reproducing results.</li>
+<li><strong>Don’t run the same script in two different Python
+environments and expect identical output</strong> unless you’ve checked
+both have the same package versions (<code>pip freeze</code> and
+compare, especially <code>yfinance</code>, <code>pandas</code>,
+<code>numpy</code>).</li>
+<li><strong>A high Sharpe with very few trades is not robust</strong> —
+check <code>total_trades</code> in the summary before getting excited
+about a number.</li>
+<li><strong>Always sanity check <code>df.shape</code> and date
+range</strong> after loading data, before trusting any backtest result
+downstream of it.</li>
+</ul>
+<h2 id="getting-help">Getting help</h2>
+<p>If your numbers look wrong, before asking, check: 1. Does
+<code>trades.csv</code> have a sane number of trades? 2. Does your
+signal column actually look right (<code>value_counts()</code> it)? 3.
+Are you comparing two runs on identical data (same date range, same
+source)?</p>
+<p>If all three check out and something still looks off, bring
+<code>trades.csv</code> + <code>backtest_summary.txt</code> + your
+strategy script when you ask.</p>
+<hr />
+<h2 id="recommended-packages-libraries">Recommended packages &amp;
+libraries</h2>
+<p>Install these in a dedicated virtual environment (<code>venv</code>
+or <code>conda</code>) — don’t install globally, and make sure everyone
+in the group uses the same versions to avoid the “different results in
+different environments” problem.</p>
+<pre><code>pip install -r requirements.txt</code></pre>
+<h3 id="data-handling-numerical-computing">Data handling &amp; numerical
+computing</h3>
+<ul>
+<li><code>pandas</code> — core dataframe library, you’ll live in
+this</li>
+<li><code>numpy</code> — array math, underlies almost everything
+else</li>
+<li><code>scipy</code> — stats, optimization, signal processing</li>
+<li><code>polars</code> — faster alternative to pandas for large
+datasets</li>
+</ul>
+<h3 id="market-data">Market data</h3>
+<ul>
+<li><code>yfinance</code> — free historical price data (what you’re
+using now)</li>
+<li><code>ccxt</code> — unified API for 100+ crypto exchanges, useful if
+you go beyond equities</li>
+<li><code>nsepy</code> / <code>nsetools</code> — NSE (India) specific
+data if relevant to you</li>
+</ul>
+<h3
+id="backtesting-frameworks-for-when-you-outgrow-the-custom-script">Backtesting
+frameworks (for when you outgrow the custom script)</h3>
+<ul>
+<li><code>backtrader</code> — popular, flexible, event-driven
+backtesting engine</li>
+<li><code>vectorbt</code> — vectorized backtesting, very fast for
+parameter sweeps</li>
+<li><code>zipline-reloaded</code> — maintained fork of Quantopian’s old
+engine</li>
+<li><code>bt</code> — lightweight, good for portfolio-level
+backtests</li>
+</ul>
+<h3 id="technical-analysis-indicators">Technical analysis /
+indicators</h3>
+<ul>
+<li><code>ta</code> — pure-python technical analysis indicators</li>
+<li><code>ta-lib</code> — the industry-standard TA library (C-based,
+faster, slightly annoying to install)</li>
+<li><code>pandas-ta</code> — pandas-native indicator library, easy to
+extend</li>
+</ul>
+<h3 id="statistics-econometrics">Statistics &amp; econometrics</h3>
+<ul>
+<li><code>statsmodels</code> — regressions, time series models (ARIMA,
+GARCH via extensions), hypothesis testing</li>
+<li><code>arch</code> — volatility modeling (GARCH family)</li>
+<li><code>pmdarima</code> — auto-ARIMA model selection</li>
+</ul>
+<h3 id="machine-learning">Machine learning</h3>
+<ul>
+<li><code>scikit-learn</code> — classical ML: regression,
+classification, clustering, model selection</li>
+<li><code>xgboost</code> — gradient boosted trees, strong baseline for
+tabular/financial data</li>
+<li><code>lightgbm</code> — faster gradient boosting, good for large
+datasets</li>
+<li><code>catboost</code> — gradient boosting with strong categorical
+feature handling</li>
+</ul>
+<h3 id="deep-learning-only-ifwhen-you-need-it">Deep learning (only
+if/when you need it)</h3>
+<ul>
+<li><code>torch</code> (PyTorch) — most common deep learning framework
+in research</li>
+<li><code>tensorflow</code> — alternative, more production-oriented</li>
+</ul>
+<h3 id="portfolio-risk">Portfolio &amp; risk</h3>
+<ul>
+<li><code>pyfolio-reloaded</code> — performance and risk analytics, tear
+sheets</li>
+<li><code>empyrical-reloaded</code> — standalone risk/return metric
+calculations (Sharpe, Sortino, drawdown, etc. — useful for
+sanity-checking your own backtester’s math)</li>
+<li><code>quantstats</code> — quick, visual portfolio performance
+reports</li>
+<li><code>riskfolio-lib</code> — portfolio optimization (mean-variance,
+risk parity, etc.)</li>
+<li><code>PyPortfolioOpt</code> — simpler portfolio optimization
+library</li>
+</ul>
+<h3 id="visualization">Visualization</h3>
+<ul>
+<li><code>matplotlib</code> — base plotting library</li>
+<li><code>plotly</code> — interactive charts (what your current
+backtester uses)</li>
+<li><code>seaborn</code> — statistical visualization, nicer defaults
+than matplotlib</li>
+</ul>
+<h3 id="workflow-utilities">Workflow &amp; utilities</h3>
+<ul>
+<li><code>jupyterlab</code> — notebook environment for exploratory
+analysis</li>
+<li><code>tqdm</code> — progress bars for long-running loops (parameter
+sweeps, etc.)</li>
+<li><code>joblib</code> — easy parallelization, also used for model
+serialization</li>
+<li><code>python-dotenv</code> — manage API keys/secrets without
+hardcoding them</li>
+<li><code>requests</code> — for hitting any REST APIs (data vendors,
+brokers)</li>
+</ul>
+<h3 id="optional-but-worth-knowing-exist">Optional but worth knowing
+exist</h3>
+<ul>
+<li><code>numba</code> — JIT-compile Python loops for speed, useful once
+vectorization isn’t enough</li>
+<li><code>optuna</code> — hyperparameter / strategy parameter
+optimization, smarter than grid search</li>
+<li><code>pyarrow</code> — fast file I/O (parquet), much better than CSV
+for large datasets long-term</li>
+</ul>
+</body>
+</html>
